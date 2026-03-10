@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff;
+    color: #1A1A1A;
+    overscroll-behavior: none;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-citaca-yellow text-citaca-dark font-display font-700 px-6 py-3 rounded-2xl 
+           shadow-citaca hover:shadow-citaca-lg hover:bg-citaca-yellow-dark 
+           transition-all duration-200 active:scale-95;
+  }
+  .card {
+    @apply bg-white rounded-3xl shadow-sm border border-gray-100 p-5;
+  }
+  .card-yellow {
+    @apply bg-citaca-yellow-soft rounded-3xl border border-citaca-yellow p-5;
+  }
+  .nav-item {
+    @apply flex flex-col items-center gap-1 text-xs font-body text-gray-400 
+           hover:text-citaca-dark transition-colors duration-150;
+  }
+  .nav-item.active {
+    @apply text-citaca-dark font-semibold;
+  }
+  .page-container {
+    @apply min-h-screen bg-gray-50 pb-24;
+  }
+  .top-bar {
+    @apply bg-citaca-yellow px-5 pt-12 pb-5 sticky top-0 z-40;
+  }
+}
+
+/* PWA safe areas */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Smooth page transitions */
+.page-enter {
+  animation: slideUp 0.25s ease-out;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #FFD600; border-radius: 4px; }
